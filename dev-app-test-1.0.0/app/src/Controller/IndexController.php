@@ -73,9 +73,18 @@ class IndexController extends AbstractController
 
     public function user($id)
     {
+        $userModel   = new Model\User();
         $view        = new View($this->viewPath . '/user.phtml');
         $view->title = 'Active Users';
         $view->nav   = $this->nav;
+        $user = $userModel->getById($id);
+        if(!empty($user)){
+            $view->user = $user;
+        }
+        else{
+        $view = new View($this->viewPath . '/error.phtml');
+        $this->response->send(404);
+        }
 
         /**
          * Task 3:
