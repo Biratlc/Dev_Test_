@@ -9,3 +9,18 @@
 
     (The $nav array variable is already available in this space via the view.)
 //-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><?=$title; ?> </title>
+</head>
+<body>
+<?php foreach ($nav as $navobj): ?>
+<tr>
+<td><a href="/<?=$navobj; ?>"><?=$navobj ?></a></td><br>
+</tr>
+<?php endforeach; ?>
+</body>
+</html>
